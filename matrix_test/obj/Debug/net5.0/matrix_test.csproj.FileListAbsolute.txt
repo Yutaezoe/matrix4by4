@@ -1,0 +1,16 @@
+C:\Users\13060\source\repos\matrix_test\matrix_test\bin\Debug\net5.0\matrix_test.exe
+C:\Users\13060\source\repos\matrix_test\matrix_test\bin\Debug\net5.0\matrix_test.deps.json
+C:\Users\13060\source\repos\matrix_test\matrix_test\bin\Debug\net5.0\matrix_test.runtimeconfig.json
+C:\Users\13060\source\repos\matrix_test\matrix_test\bin\Debug\net5.0\matrix_test.runtimeconfig.dev.json
+C:\Users\13060\source\repos\matrix_test\matrix_test\bin\Debug\net5.0\matrix_test.dll
+C:\Users\13060\source\repos\matrix_test\matrix_test\bin\Debug\net5.0\matrix_test.pdb
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.csproj.AssemblyReference.cache
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.AssemblyInfoInputs.cache
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.AssemblyInfo.cs
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.csproj.CoreCompileInputs.cache
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.dll
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\refint\matrix_test.dll
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.pdb
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\matrix_test.genruntimeconfig.cache
+C:\Users\13060\source\repos\matrix_test\matrix_test\obj\Debug\net5.0\ref\matrix_test.dll
