@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace matrix_test
 {
@@ -33,17 +26,19 @@ namespace matrix_test
         public float m21;
         public float m31;
 
-        
+
         public float m02;
         public float m12;
         public float m22;
         public float m32;
 
-        
+
         public float m03;
         public float m13;
         public float m23;
         public float m33;
+
+        public Matrix4x4 inverse { get { return this.Inverse(); } }
 
         public Matrix4x4(Vector4 column0, Vector4 column1, Vector4 column2, Vector4 column3)
         {
@@ -53,9 +48,8 @@ namespace matrix_test
             this.m30 = column0.W; this.m31 = column1.W; this.m32 = column2.W; this.m33 = column3.W;
         }
 
-        public void TRS(Vector3 t , Quaternion r , Vector3 s)
+        public Matrix4x4 TRS(Vector3 t, Quaternion r, Vector3 s)
         {
-
             System.Numerics.Matrix4x4 matrix = new System.Numerics.Matrix4x4();
 
             matrix.M11 = (1.0f - 2.0f * (r.Y * r.Y + r.Z * r.Z)) * s.X;
@@ -76,35 +70,35 @@ namespace matrix_test
             matrix.M44 = 1.0f;
 
             this.ChangeMatrix4x4(matrix);
-
+            return this;
         }
 
-        public void Inverse()
+        public Matrix4x4 Inverse()
         {
-
-            System.Numerics.Matrix4x4 matrix4X4 = new System.Numerics.Matrix4x4(m00,m10,m20,m30,m01,m11,m21,m31,m02,m12,m22,m32,m03,m13,m23,m33);
-
-            System.Numerics.Matrix4x4 result = new System.Numerics.Matrix4x4();
-
-            System.Numerics.Matrix4x4.Invert(matrix4X4, out result);
+            System.Numerics.Matrix4x4 matrix4X4 = new System.Numerics.Matrix4x4(m00, m10, m20, m30, m01, m11, m21, m31, m02, m12, m22, m32, m03, m13, m23, m33);
+            System.Numerics.Matrix4x4.Invert(matrix4X4, out System.Numerics.Matrix4x4 result);
 
             ChangeMatrix4x4(result);
 
+            return this;
+        }
+
+        // Transforms a position by this matrix, without a perspective divide. (fast)
+        public Vector3 MultiplyPoint3x4(Vector3 point)
+        {
+            Vector3 res;
+            res.X = this.m00 * point.X + this.m01 * point.Y + this.m02 * point.Z + this.m03;
+            res.Y = this.m10 * point.X + this.m11 * point.Y + this.m12 * point.Z + this.m13;
+            res.Z = this.m20 * point.X + this.m21 * point.Y + this.m22 * point.Z + this.m23;
+            return res;
         }
 
         private void ChangeMatrix4x4(System.Numerics.Matrix4x4 matrix4x4)
         {
             this.m00 = matrix4x4.M11; this.m01 = matrix4x4.M21; this.m02 = matrix4x4.M31; this.m03 = matrix4x4.M41;
-            this.m10 = matrix4x4.M12; this.m11 = matrix4x4.M22; this.m12 = matrix4x4.M32; this.m13 = matrix4x4.M41;
-            this.m20 = matrix4x4.M13; this.m21 = matrix4x4.M23; this.m22 = matrix4x4.M33; this.m23 = matrix4x4.M41;
-            this.m30 = matrix4x4.M14; this.m31 = matrix4x4.M24; this.m32 = matrix4x4.M34; this.m33 = matrix4x4.M41;
-
+            this.m10 = matrix4x4.M12; this.m11 = matrix4x4.M22; this.m12 = matrix4x4.M32; this.m13 = matrix4x4.M42;
+            this.m20 = matrix4x4.M13; this.m21 = matrix4x4.M23; this.m22 = matrix4x4.M33; this.m23 = matrix4x4.M43;
+            this.m30 = matrix4x4.M14; this.m31 = matrix4x4.M24; this.m32 = matrix4x4.M34; this.m33 = matrix4x4.M44;
         }
-
-
     }
-
-   
-
-
 }

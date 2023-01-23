@@ -39,10 +39,12 @@ namespace matrix_test
             Console.WriteLine("/なんもないはず/");
             Console.WriteLine(matrix.m03);
             Console.WriteLine(matrix.m13);
-            Console.WriteLine(matrix.m13);
-            Console.WriteLine(matrix.m13);
+            Console.WriteLine(matrix.m23);
+            Console.WriteLine(matrix.m33);
 
-            matrix.Inverse();
+            //matrix.Inverse();
+
+            //matrix.inverse.MultiplyPoint3x4(vector3をいれる)
 
             Console.WriteLine("/逆行列/");
 
